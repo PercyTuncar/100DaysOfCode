@@ -15,3 +15,10 @@ la accesibilidad. La etiqueta HTML5 principal ayuda a los motores de búsqueda y
 otros desarrolladores a encontrar el contenido principal de su página.
 Ejemplo de uso, un elemento principal con dos elementos secundarios anidados en su interior
 **Link del trabajo:** [Responsive Web Design](https://github.com/PercyTuncar/100DaysOfCode)
+
+### Agregar imágenes a su sitio web
+Puede agregar imágenes a su sitio web usando el elemento img y apuntar a la URL de una imagen específica usando el atributo src.
+Un ejemplo de esto sería:
+```html
+<img src="https://www.your-image-source.com/your-image.jpg">
+```
