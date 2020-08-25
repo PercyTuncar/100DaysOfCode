@@ -1,0 +1,2 @@
+# 100DaysOfCode
+¡Comencé hoy el desafío de los 100 días de código! Ya es hora de que me tome en serio la mejora de mis habilidades. Mi objetivo final es sentirme más cómodo con React. Durante el primer trimestre del desafío, mi enfoque principal será revisar y desarrollar mis habilidades de HTML5, CSS y JavaScript. Hay tantos recursos geniales que utilizaré, como Scrimba, FreeCodeCamp y Codecademy.
