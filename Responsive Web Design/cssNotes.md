@@ -138,3 +138,27 @@ Agregar esquinas redondeadas con` border-radius`
 La foto de tu gato tiene actualmente esquinas afiladas. Podemos redondear esas esquinas con una propiedad CSS llamada `border-radius`. 
 
 Puede especificar un border-radius con píxeles. Dale a tu foto de gato un border-radius de 10 px.
+
+
+### Imágenes circulares con border-radius
+Además de los píxeles, también puede especificar el radio del borde mediante un porcentaje.
+
+
+### Usar un atributo id para diseñar un elemento
+Una cosa interesante acerca de los atributos de identificación es que, al igual que las clases, puedes diseñarlos usando CSS.
+
+Sin embargo, una identificación no es reutilizable y solo debe aplicarse a un elemento. Un id también tiene una mayor especificidad (importancia) que una clase, por lo que si ambos se aplican al mismo elemento y tienen estilos en conflicto, se aplicarán los estilos del id.
+
+Aquí hay un ejemplo de cómo puede tomar su elemento con el atributo id de cat-photo-element y darle el color de fondo verde. En tu elemento de estilo:
+```css
+# cat-photo-element {
+  color de fondo: verde;
+}
+```
+Tenga en cuenta que dentro de su elemento de estilo, siempre hace referencia a las clases poniendo un. delante de sus nombres. Siempre hace referencia a los identificadores colocando un # delante de sus nombres.
+
+### Ajustar el relleno de un elemento (Padding)
+Es posible que ya lo haya notado, pero todos los elementos HTML son esencialmente pequeños rectángulos.
+**Son tres propiedades importantes controlan el espacio que rodea a cada elemento HTML:**
+`padding`, `margin`, y `border`.   
+Un elemento `padding` controla la cantidad de espacio entre el contenido del elemento y su `border`
