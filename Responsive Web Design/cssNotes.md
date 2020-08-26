@@ -162,3 +162,119 @@ Es posible que ya lo haya notado, pero todos los elementos HTML son esencialment
 **Son tres propiedades importantes controlan el espacio que rodea a cada elemento HTML:**
 `padding`, `margin`, y `border`.   
 Un elemento `padding` controla la cantidad de espacio entre el contenido del elemento y su `border`
+
+Aquí, podemos ver que el cuadro azul y el cuadro rojo están anidados dentro del cuadro amarillo. Tenga en cuenta que el cuadro rojo tiene más `padding` que el cuadro azul.
+
+```css
+<style>
+  .injected-text {
+    margin-bottom: -25px;
+    text-align: center;
+  }
+
+  .box {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+  }
+
+  .yellow-box {
+    background-color: yellow;
+    padding: 10px;
+  }
+
+  .red-box {
+    background-color: crimson;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .blue-box {
+    background-color: blue;
+    color: #fff;
+    padding: 10px;
+  }
+  ```
+  ```html
+</style>
+<h5 class="injected-text">margin</h5>
+
+<div class="box yellow-box">
+  <h5 class="box red-box">padding</h5>
+  <h5 class="box blue-box">padding</h5>
+</div>
+```
+Cuando aumentas el `padding` de la caja azul aumentará la distancia (padding) entre el texto y el borde que lo rodea.
+
+### Ajustar el margen de un elemento (Margin)
+El `margin` de un elemento controla la cantidad de espacio entre el borde de un elemento y los elementos circundantes.
+
+Aquí, podemos ver que el cuadro azul y el cuadro rojo están anidados dentro del cuadro amarillo. Tenga en cuenta que el cuadro rojo tiene un margen más grande que el cuadro azul, lo que lo hace parecer más pequeño.
+```CSS
+<style>
+  .injected-text {
+    margin-bottom: -25px;
+    text-align: center;
+  }
+
+  .box {
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+    text-align: center;
+  }
+
+  .yellow-box {
+    background-color: yellow;
+    padding: 10px;
+  }
+
+  .red-box {
+    background-color: crimson;
+    color: #fff;
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .blue-box {
+    background-color: blue;
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+  }
+</style>
+```
+```HTML
+<h5 class="injected-text">margin</h5>
+<div class="box yellow-box">
+  <h5 class="box red-box">padding</h5>
+  <h5 class="box blue-box">padding</h5>
+</div>
+```
+Cuando aumente el margen del cuadro azul, aumentará la distancia entre su borde y los elementos circundantes.
+
+### Agregar un margen negativo a un elemento
+El `margin` de un elemento controla la cantidad de espacio entre el borde de un elemento y los elementos circundantes.
+
+Si establece el `margin` de un elemento en un valor negativo, el elemento crecerá más.
+
+
+### Add Different Padding to Each Side of an Element
+A veces querrá personalizar un elemento para que tenga diferentes cantidades de padding  en cada uno de sus lados.
+CSS le permite controlar el `padding` de los cuatro lados individuales de un elemento con las propiedades `padding-top`, `padding-right`, `padding-bottom` y `padding-left`.
+
+
+### Utilice  Clockwise Notation para especificar el relleno de un elemento
+En lugar de especificar un elemento  
+padding-top, padding-right, padding-bottom, y padding-left  de un elemento individualmente, puede especificarlas todas en una línea, así:
+```css
+padding: 10px 20px 10px 20px;
+```
+Estos cuatro valores funcionan como un reloj: arriba, derecha, abajo, izquierda y producirán exactamente el mismo resultado que usar las instrucciones de relleno específicas de los lados.
+
+### Utilice la notación en sentido horario para especificar el margen de un elemento
+Intentemos esto de nuevo, pero con margin esta vez. 
+```css
+margin: 10px 20px 10px 20px;
+```
