@@ -648,8 +648,8 @@ background: var(--penguin-skin);
 ```
 Esto cambiará el fondo de cualquier elemento al que esté apuntando a gris porque ese es el valor de la variable --penguin-skin. Tenga en cuenta que los estilos no se aplicarán a menos que los nombres de las variables coincidan exactamente.
 
-### Adjuntar un valor de respaldo a una variable CSS
-Cuando usa su variable como un valor de propiedad CSS, puede adjuntar un valor de respaldo al que su navegador volverá si la variable dada no es válida.   
+### Adjuntar un valor de respaldo a una variable CSS.
+Cuando usa su variable como un valor de propiedad *CSS*, puede adjuntar un valor de respaldo al que su navegador volverá si la variable dada no es válida.   
 Nota: este respaldo no se utiliza para aumentar la compatibilidad del navegador y no funcionará en los navegadores IE. Más bien, se utiliza para que el navegador tenga un color para mostrar si no puede encontrar su variable.  
 Así es como lo haces:
 ```css
