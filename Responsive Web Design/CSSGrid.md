@@ -134,3 +134,13 @@ Esto se traduce en:
 grid-template-columns: 1fr 50px 1fr 50px 20px;
 ```
 Nota: El 1fr 50px se repite dos veces seguido de 20px.
+
+### Limitar el tamaño del artículo mediante la función minmax
+Hay otra función incorporada para usar con `grid-template-columns` y `grid-template-rows ` llamada `minmax`    
+
+Se usa para limitar el tamaño de los elementos cuando el contenedor de cuadrícula cambia de tamaño. Para hacer esto, necesita especificar el rango de tamaño aceptable para su artículo. Aquí hay un ejemplo: 
+```css
+grid-template-columns: 100px minmax(50px, 200px);
+```
+En el código anterior, las `grid-template-columns` están configuradas para crear dos columnas; el primero tiene 100 píxeles de ancho y el segundo tiene un ancho mínimo de 50 píxeles y un ancho máximo de 200 píxeles.
+
