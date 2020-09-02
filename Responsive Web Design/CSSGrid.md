@@ -144,3 +144,22 @@ grid-template-columns: 100px minmax(50px, 200px);
 ```
 En el código anterior, las `grid-template-columns` están configuradas para crear dos columnas; el primero tiene 100 píxeles de ancho y el segundo tiene un ancho mínimo de 50 píxeles y un ancho máximo de 200 píxeles.
 
+#### Cree diseños flexibles con auto-fill 
+La función de repetición viene con una opción llamada  auto-fill. Esto le permite insertar automáticamente tantas filas o columnas del tamaño deseado como sea posible, dependiendo del tamaño del contenedor. Puede crear diseños flexibles al combinar el  auto-fill con minmax, así:
+```css
+repeat(auto-fill, minmax(60px, 1fr));
+```
+Cuando el contenedor cambia de tamaño, esta configuración sigue insertando columnas de 60 px y estirándolas hasta que pueda insertar otra. Nota: Si su contenedor no puede caber todos sus artículos en una fila, los moverá a una nueva.
+
+### Cree diseños flexibles utilizando auto-fit
+el autoauto-fit ajuste funciona casi de manera idéntica al auto-fill. La única diferencia es que cuando el tamaño del contenedor excede el tamaño de todos los elementos combinados, el auto-fill sigue insertando filas o columnas vacías y empuja sus elementos hacia un lado, mientras que el  auto-fit colapsa esas filas o columnas vacías y estira sus elementos hasta se ajusta al tamaño del recipiente.
+
+Nota: Si su contenedor no puede caber todos sus artículos en una fila, los moverá a una nueva.
+
+### Use Media Queries to Create Responsive Layouts
+CSS Grid puede ser una forma fácil de hacer que su sitio sea más receptivo mediante consultas de medios para reorganizar las áreas de la cuadrícula, cambiar las dimensiones de una cuadrícula y reorganizar la ubicación de los elementos.
+
+En la vista previa, cuando el ancho de la ventana gráfica es de 300 px o más, el número de columnas cambia de 1 a 2. El área de publicidad ocupa la columna de la izquierda por completo.
+
+### rear Grids debtro de Grids
+Convertir un elemento en una grid solo afecta el comportamiento de sus descendientes directos. Entonces, al convertir un descendiente directo en una grid, tiene una grid dentro de un grid.
