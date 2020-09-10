@@ -48,3 +48,64 @@ function catTalk() {
 }
 catTalk();
 ```
+
+
+## Compare Scopes of the var and let Keywords
+Cuando declaras una variable con la palabra clave **var**, se declara globalmente o localmente si se declara dentro de una función.
+
+La palabra clave **let** se comporta de manera similar, pero con algunas características adicionales. Cuando declaras una variable con la palabra clave **let** dentro de un bloque, su alcance se limita a ese bloque.   
+For example:
+```js
+var numArray = [];
+for (var i = 0; i < 3; i++) {
+  numArray.push(i);
+}
+console.log(numArray);
+// returns [0, 1, 2]
+console.log(i);
+// returns 3
+```
+Con la palabra clave var, i se declara globalmente. Entonces, cuando se ejecuta i ++, actualiza la variable global. Este código es similar al siguiente:
+```js
+var numArray = [];
+var i;
+for (i = 0; i < 3; i++) {
+  numArray.push(i);
+}
+console.log(numArray);
+// returns [0, 1, 2]
+console.log(i);
+// returns 3
+```
+Este comportamiento causará problemas si crea una función y la almacena para su uso posterior dentro de un bucle for que usa la variable i. Esto se debe a que la función almacenada siempre se referirá al valor de la variable i global actualizada.
+```js
+
+
+var printNumTwo;
+for (var i = 0; i < 3; i++) {
+  if (i === 2) {
+    printNumTwo = function() {
+      return i;
+    };
+  }
+}
+console.log(printNumTwo());
+// returns 3
+```
+Como puede ver, printNumTwo() imprime 3 y no 2. Esto se debe a que el valor asignado a i se actualizó y printNumTwo() devuelve la i global y no el valor que tenía cuando se creó la función en el ciclo for. La palabra clave let no sigue este comportamiento:
+```js
+'use strict';
+let printNumTwo;
+for (let i = 0; i < 3; i++) {
+  if (i === 2) {
+    printNumTwo = function() {
+      return i;
+    };
+  }
+}
+console.log(printNumTwo());
+// returns 2
+console.log(i);
+// returns "i is not defined"
+```
+**i** no está definido porque no se declaró en el ámbito global. Solo se declara dentro de la instrucción de bucle for. printNumTwo() devolvió el valor correcto porque tres variables i diferentes con valores únicos (0, 1 y 2) fueron creadas por la palabra clave let dentro de la declaración de bucle.
