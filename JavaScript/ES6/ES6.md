@@ -109,3 +109,150 @@ console.log(i);
 // returns "i is not defined"
 ```
 **i** no está definido porque no se declaró en el ámbito global. Solo se declara dentro de la instrucción de bucle for. printNumTwo() devolvió el valor correcto porque tres variables i diferentes con valores únicos (0, 1 y 2) fueron creadas por la palabra clave let dentro de la declaración de bucle.
+
+## Declarar una variable de solo lectura con la palabra clave const
+La palabra clave let no es la única forma nueva de declarar variables. En ES6, también puede declarar variables usando la palabra clave const.
+
+const tiene todas las características increíbles que permite, con la ventaja adicional de que las variables declaradas usando const son de solo lectura. Son un valor constante, lo que significa que una vez que una variable se asigna con const, no se puede reasignar.
+
+```js
+"use strict";
+const FAV_PET = "Cats";
+FAV_PET = "Dogs"; // returns error
+```
+Como puede ver, intentar reasignar una variable declarada con const arrojará un error. Siempre debe nombrar las variables que no desea reasignar usando la palabra clave const. Esto ayuda cuando accidentalmente intenta reasignar una variable que debe permanecer constante. ***Una práctica común al nombrar constantes es usar todas las letras mayúsculas***, con palabras separadas por un guión bajo.
+
+**Nota**: Es común que los desarrolladores usen identificadores de variable en mayúsculas para valores inmutables y minúsculas o camelCase para valores mutables (objetos y matrices). En un desafío posterior, verá un ejemplo de un identificador de variable en minúsculas que se usa para una matriz.
+
+## Mutar una matriz declarada con const
+La declaración const tiene muchos casos de uso en JavaScript moderno.
+
+Algunos desarrolladores prefieren asignar todas sus variables usando const por defecto, a menos que sepan que necesitarán reasignar el valor. Solo en ese caso, usan let.
+
+Sin embargo, es importante comprender que los objetos (incluidos los arreglos y las funciones) asignados a una variable mediante const siguen siendo mutables. El uso de la declaración const solo evita la reasignación del identificador de variable.
+```js
+"use strict";
+const s = [5, 6, 7];
+s = [1, 2, 3]; // throws error, trying to assign a const
+s[2] = 45; // works just as it would with an array declared with var or let
+console.log(s); // returns [5, 6, 45]
+```
+Como puede ver, puede mutar el objeto [5, 6, 7] en sí mismo y la variable s seguirá apuntando a la matriz alterada [5, 6, 45]. Como todas las matrices, los elementos de la matriz en s son mutables, pero debido a que se usó const, no puede usar el identificador de variable s para apuntar a una matriz diferente usando el operador de asignación.
+
+## Prevenir la mutación de objetos
+Como se vio en el desafío anterior, la declaración const por sí sola no protege realmente sus datos de la mutación. Para asegurarse de que sus datos no cambien, JavaScript proporciona una función **Object.freeze** para evitar la mutación de datos.
+
+Una vez que el objeto está congelado, ya no puede agregar, actualizar o eliminar propiedades de él. Cualquier intento de cambiar el objeto será rechazado sin error.    
+```js
+let obj = {
+  name:"FreeCodeCamp",
+  review:"Awesome"
+};
+Object.freeze(obj);
+obj.review = "bad"; // will be ignored. Mutation not allowed
+obj.newProp = "Test"; // will be ignored. Mutation not allowed
+console.log(obj); 
+// { name: "FreeCodeCamp", review:"Awesome"}
+```
+
+## Utilice funciones de flecha para escribir funciones anónimas concisas
+En JavaScript, a menudo no necesitamos nombrar nuestras funciones, especialmente cuando pasamos una función como argumento a otra función. En cambio, creamos funciones en línea. No necesitamos nombrar estas funciones porque no las reutilizamos en ningún otro lugar.
+```js
+const myFunc = function() {
+  const myVar = "value";
+  return myVar;
+}
+```
+ES6 nos proporciona el azúcar sintáctico para no tener que escribir funciones anónimas de esta manera. En su lugar, puede utilizar la sintaxis de la función de flecha:
+```js
+const myFunc = () => {
+  const myVar = "value";
+  return myVar;
+}
+```
+Cuando no hay un cuerpo de función y solo un valor de retorno, la sintaxis de la función de flecha le permite omitir la palabra clave **return**, así como los corchetes que rodean el código. Esto ayuda a simplificar funciones más pequeñas en declaraciones de una línea:
+```js
+const myFunc = () => "value";
+```
+
+## Escribir funciones de flecha con parámetros
+Al igual que una función normal, puede pasar argumentos a una función de flecha.
+```js
+// doubles input value and returns it
+const doubler = (item) => item * 2;
+```
+Si una función de flecha tiene un solo argumento, **se pueden omitir los paréntesis** que encierran el argumento.
+```js
+// the same function, without the argument parentheses
+const doubler = item => item * 2;
+```
+Es posible pasar más de un argumento a una función de flecha.
+```js
+// multiplies the first input value by the second and returns it
+const multiplier = (item, multi) => item * multi;
+```
+## Establecer parámetros predeterminados para sus funciones
+Para ayudarnos a crear funciones más flexibles, ES6 introduce parámetros predeterminados para funciones.
+
+Mira este código:
+```js
+const greeting = (name = "Anonymous") => "Hello " + name;
+
+console.log(greeting("John")); // Hello John
+console.log(greeting()); // Hello Anonymous
+```
+El parámetro predeterminado se activa cuando no se especifica el argumento (no está definido). Como puede ver en el ejemplo anterior, el nombre del parámetro recibirá su valor predeterminado "Anónimo" cuando no proporcione un valor para el parámetro. Puede agregar valores predeterminados para tantos parámetros como desee.
+
+## Usar el parámetro Rest en una función con parámeros
+Para ayudarnos a crear funciones más flexibles, ES6 introduce el parámetro rest para los parámetros de función. Con el parámetro rest, puede crear funciones que tomen un número variable de argumentos. Estos argumentos se almacenan en una matriz a la que se puede acceder más tarde desde dentro de la función.
+
+Mira este código:
+```js
+function howMany(...args) {
+  return "You have passed " + args.length + " arguments.";
+}
+console.log(howMany(0, 1, 2)); // You have passed 3 arguments.
+console.log(howMany("string", null, [1, 2, 3], { })); // You have passed 4 arguments.
+```
+El parámetro **rest** elimina la necesidad de verificar la matriz de argumentos y nos permite aplicar **map()**, **filter()** y **reduce()** en la matriz de parámetros.
+
+## Use the Spread Operator to Evaluate Arrays In-PlacePassed
+ES6 introduce el Spread Operator, que nos permite expandir matrices y otras expresiones en lugares donde se esperan múltiples parámetros o elementos.
+
+El siguiente código ES5 usa apply () para calcular el valor máximo en una matriz:
+```js
+var arr = [6, 89, 3, 45];
+var maximus = Math.max.apply(null, arr); // returns 89
+```
+Tuvimos que usar **Math.max.apply(null, arr)** porque **Math.max(arr)** devuelve *NaN*. **Math.max()** espera argumentos separados por comas, pero no una matriz. El Spread Operator hace que esta sintaxis sea mucho mejor de leer y mantener.
+```js
+const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr); // returns 89
+```
+**...arr** devuelve una matriz desempaquetada. En otras palabras, extiende la matriz. Sin embargo, el  Spread Operator solo funciona en el lugar, como en un argumento para una función o en un literal de matriz. El siguiente código no funcionará:
+```js
+const spreaded = ...arr; // will throw a syntax error
+```
+
+## Utilice la asignación de desestructuración para extraer valores de objetos
+La asignación de desestructuración es una sintaxis especial introducida en ES6, para asignar claramente valores tomados directamente de un objeto.
+
+Considere el siguiente código ES5:
+
+```js
+const user = { 
+    name: 'John Doe', 
+    age: 34 
+    };
+
+const name = user.name; // name = 'John Doe'
+const age = user.age; // age = 34
+```
+Aquí hay una declaración de asignación equivalente usando la sintaxis de desestructuración de ES6:
+```js
+const { name, age } = user;
+// name = 'John Doe', age = 34
+```
+Aquí, se crearán las variables de nombre y edad y se les asignarán los valores de sus respectivos valores desde el objeto de usuario. Puedes ver cuánto más limpio es esto.
+
+Puede extraer tantos o pocos valores del objeto como desee.
