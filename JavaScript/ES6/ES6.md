@@ -256,3 +256,85 @@ const { name, age } = user;
 Aquí, se crearán las variables de nombre y edad y se les asignarán los valores de sus respectivos valores desde el objeto de usuario. Puedes ver cuánto más limpio es esto.
 
 Puede extraer tantos o pocos valores del objeto como desee.
+
+
+## Utilice la asignación de desestructuración para asignar variables desde objetos.
+La desestructuración le permite asignar un nuevo nombre de variable al extraer valores. Puede hacer esto colocando el nuevo nombre después de dos puntos al asignar el valor.
+
+Usando el mismo objeto del último ejemplo:
+```js
+const user = { name: 'John Doe', age: 34 };
+```
+A continuación, le mostramos cómo puede asignar nuevos nombres a las variables en la asignación:
+```js
+const { name: userName, age: userAge } = user;
+// userName = 'John Doe', userAge = 34
+```
+Puede leerlo como "obtener el valor de user.name y asignarlo a una nueva variable llamada userName" y así sucesivamente.   
+
+## Utilice la asignación de desestructuración para asignar variables desde objetos anidados
+Puede utilizar los mismos principios de las dos lecciones anteriores para desestructurar valores de objetos anidados.
+
+Usando un objeto similar a los ejemplos anteriores:
+```js
+const user = {
+  johnDoe: { 
+    age: 34,
+    email: 'johnDoe@freeCodeCamp.com'
+  }
+};
+```
+A continuación, se explica cómo extraer los valores de las propiedades del objeto y asignarlos a variables con el mismo nombre:
+```js
+const { johnDoe: { age, email }} = user;
+``` 
+Y así es como puede asignar los valores de las propiedades de un objeto a variables con diferentes nombres:
+```js
+const { johnDoe: { age: userAge, email: userEmail }} = user;
+``` 
+
+## Utilice la asignación de desestructuración para asignar variables desde arrays
+ES6 hace que desestructurar matrices sea tan fácil como desestructurar objetos.
+
+Una diferencia clave entre el spread operator y la desestructuración de la matriz es que el  spread operator descomprime todo el contenido de una matriz en una lista separada por comas. En consecuencia, no puede seleccionar ni elegir qué elementos desea asignar a las variables.
+
+Desestructurar una matriz nos permite hacer exactamente eso:
+```js
+const [a, b] = [1, 2, 3, 4, 5, 6];
+console.log(a, b); // 1, 2
+``` 
+A la variable **a** se le asigna el primer valor de la matriz, y a **b** se le asigna el segundo valor de la matriz. También podemos acceder al valor en cualquier índice en una matriz con desestructuración usando comas para alcanzar el índice deseado:
+```js
+const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+console.log(a, b, c); // 1, 2, 5
+```
+
+
+## Utilice la asignación de desestructuración con el parámetro Rest para reasignar elementos de un array
+En algunas situaciones que implican la desestructuración de matrices, es posible que deseemos recopilar el resto de los elementos en una matriz separada.
+
+El resultado es similar a **Array.prototype.slic()**, como se muestra a continuación:
+```js
+const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+console.log(a, b); // 1, 2
+console.log(arr); // [3, 4, 5, 7]
+``` 
+Las variables a y b toman el primer y segundo valor de la matriz. Después de eso, debido a la presencia del parámetro rest, arr obtiene el resto de los valores en forma de matriz. El resto del elemento solo funciona correctamente como última variable de la lista. Al igual que en, no puede usar el parámetro rest para capturar un subarreglo que omite el último elemento del arreglo original.
+
+## ES6: usar la asignación de desestructuración para pasar un objeto como parámetros de una función
+En algunos casos, puede desestructurar el objeto en un argumento de función.
+
+Considere el siguiente código:
+```js
+const profileUpdate = (profileData) => {
+  const { name, age, nationality, location } = profileData;
+  // do something with these variables
+}
+```
+Esto efectivamente destruye el objeto enviado a la función. Esto también se puede hacer en el lugar:
+```js
+const profileUpdate = ({ name, age, nationality, location }) => {
+  /* do something with these fields */
+}
+``` 
+Cuando profileData se pasa a la función anterior, los valores se desestructuran del parámetro de función para su uso dentro de la función.

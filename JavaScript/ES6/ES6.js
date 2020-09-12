@@ -106,3 +106,104 @@ const HIGH_TEMPERATURES = {
   
   // Only change code above this line
   
+
+
+  /* Reemplace las dos asignaciones 
+  con una asignación de desestructuración 
+  equivalente. Todavía debería asignar a 
+  las variables highToday y highTomorrow 
+  los valores de hoy y mañana del objeto
+   HIGH_TEMPERATURES.*/
+
+   const HIGH_TEMPERATURES = {
+    yesterday: 75,
+    today: 77,
+    tomorrow: 80
+  };
+  
+  // Only change code below this line
+    
+  const {today:highToday, tomorrow:highTomorrow} = HIGH_TEMPERATURES;
+  
+  // Only change code above this line
+  
+
+
+
+  /**
+   * Reemplace las dos asignaciones con
+   *  una asignación de desestructuración 
+   * equivalente. Aún debe asignar a las
+   *  variables lowToday y highToday los
+   *  valores de today.low y today.high 
+   * del objeto LOCAL_FORECAST.
+   */
+
+  const LOCAL_FORECAST = {
+    yesterday: { low: 61, high: 75 },
+    today: { low: 64, high: 77 },
+    tomorrow: { low: 68, high: 80 }
+  };
+  
+  // Only change code below this line
+    
+  const {today:{low:lowToday, high:highToday}} = LOCAL_FORECAST;
+  
+  // Only change code above this line
+  
+
+  /**
+   * Utilice la asignación de desestructuración 
+   * para intercambiar los valores de 
+   * a y b de modo que a reciba el valor 
+   * almacenado en b y b reciba el 
+   * valor almacenado en a.
+   */
+  let a = 8, b = 6;
+  // Only change code below this line
+  [a, b] = [b, a];
+  console.log(b)
+
+  /**
+   * Use la asignación de desestructuración
+   *  con el parámetro rest para realizar 
+   * un Array.prototype.slice() efectivo
+   *  de modo que arr sea un subarreglo 
+   * del origen del arreglo original con 
+   * los dos primeros elementos omitidos.
+   */
+
+  const source = [1,2,3,4,5,6,7,8,9,10];
+function removeFirstTwo(list) {
+  "use strict";
+  // Only change code below this line
+  const [a,b, ...arr] = list; // Change this line
+  // Only change code above this line
+  console.log(arr);
+  return arr;
+}
+const arr = removeFirstTwo(source);
+
+
+/**
+ * Use la asignación de
+ *  desestructuración 
+ * dentro del argumento 
+ * de la función half 
+ * para enviar solo max 
+ * y min dentro de la
+ *  función.
+ */
+
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+
+// Only change code below this line
+const half = ({ max, min }) => (max + min) / 2.0;
+// Only change code above this line
