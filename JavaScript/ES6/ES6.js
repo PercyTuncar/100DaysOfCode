@@ -207,3 +207,16 @@ const stats = {
 // Only change code below this line
 const half = ({ max, min }) => (max + min) / 2.0;
 // Only change code above this line
+
+
+//Utilice taquigrafía de propiedad de objeto con literales de objeto para crear y devolver un objeto con propiedades de nombre, edad y género.
+const createPerson = (name, age, gender) => {
+  "use strict";
+  // Only change code below this line
+  return {
+    name,
+    age,
+    gender
+  };
+  // Only change code above this line
+};

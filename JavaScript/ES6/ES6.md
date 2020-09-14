@@ -361,3 +361,17 @@ console.log(greeting); // prints
 Allí pasaron muchas cosas. En primer lugar, el ejemplo utiliza comillas inversas (`), no comillas ('o"), para ajustar la cadena. En segundo lugar, observe que la cadena es de varias líneas, tanto en el código como en la salida. Esto ahorra la inserción de \n dentro de las cadenas. La sintaxis **${variable}** utilizada anteriormente es un marcador de posición. Básicamente, ya no tendrá que usar la concatenación con el operador +. Para agregar variables a las cadenas, simplemente suelte la variable en una cadena de plantilla y envuélvala con ${y}. De manera similar, puede incluir otras expresiones en su literal de cadena, por ejemplo ${a + b}. Esta nueva forma de crear cadenas le brinda más flexibilidad para crear cadenas robustas.
 
 Utilice la sintaxis literal de plantilla con comillas inversas para crear una matriz de cadenas de elementos de lista (li). El texto de cada elemento de la lista debe ser uno de los elementos de la matriz de la propiedad de falla en el objeto de resultado y tener un atributo de clase con el valor de advertencia de texto. La función makeList debería devolver la matriz de cadenas de elementos de la lista.
+
+## Escribir declaraciones de literales de objeto concisas utilizando la abreviatura de propiedades de objeto
+ES6 agrega un buen soporte para definir fácilmente literales de objetos.     
+Considere el siguiente código:
+```js
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+``` 
+getMousePosition es una función simple que devuelve un objeto que contiene dos propiedades. ES6 proporciona el azúcar sintáctico para eliminar la redundancia de tener que escribir x: x. Simplemente puede escribir x una vez, y se convertirá en tox: x (o algo equivalente) bajo el capó. Aquí está la misma función de arriba reescrita para usar esta nueva sintaxis:
+```js
+const getMousePosition = (x, y) => ({ x, y });
+``` 
