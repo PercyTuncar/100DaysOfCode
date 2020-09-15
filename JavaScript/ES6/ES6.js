@@ -220,3 +220,37 @@ const createPerson = (name, age, gender) => {
   };
   // Only change code above this line
 };
+/**FUNCIONES DENTRO DE UN OBJETO:
+ * Refactorice la función setGear dentro del
+ *  objeto bicicleta para usar la sintaxis 
+ * abreviada descrita anteriormente.
+ */
+// Only change code below this line
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  }
+};
+// Only change code above this line
+bicycle.setGear(3);
+console.log(bicycle.gear);
+
+
+/**
+ * Use la palabra clave class y escriba un constructor para crear la clase Vegetable.
+
+La clase Vegetable le permite crear un objeto vegetal con un nombre de
+ propiedad que se pasa al constructor.
+ */
+
+ // Only change code below this line
+class Vegetable {
+  constructor(name){
+    this.name=name;
+  }
+}
+// Only change code above this line
+
+const carrot = new Vegetable('carrot');
+console.log(carrot.name); // Should display 'carrot'

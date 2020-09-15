@@ -375,3 +375,84 @@ getMousePosition es una función simple que devuelve un objeto que contiene dos 
 ```js
 const getMousePosition = (x, y) => ({ x, y });
 ``` 
+## Escribir funciones declarativas concisas con ES6
+Al definir funciones dentro de objetos en ES5, tenemos que usar 
+la palabra clave **function** de la siguiente manera:
+```js
+const person = {
+  name: "Taylor",
+  sayHello: function() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+```
+Con ES6, puede eliminar la palabra clave de **function** y los dos puntos 
+al definir funciones en objetos. He aquí un ejemplo de esta sintaxis:
+```js
+const person = {
+  name: "Taylor",
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};
+```
+
+## Utilice la sintaxis de class para definir una función de constructor
+ES6 proporciona una nueva sintaxis para crear 
+objetos, utilizando la palabra clave class.    
+
+Cabe señalar que la sintaxis class es solo sintaxis, y no una implementación completa basada en clases de un paradigma orientado a objetos, a diferencia de lenguajes como Java, Python, Ruby, etc.
+
+En ES5, generalmente definimos una función de constructor y usamos la palabra clave new para crear una instancia de un objeto.
+```js
+var SpaceShuttle = function(targetPlanet){
+  this.targetPlanet = targetPlanet;
+}
+var zeus = new SpaceShuttle('Jupiter');
+```
+La sintaxis class simplemente reemplaza la creación de la función constructora:
+```js
+class SpaceShuttle {
+  constructor(targetPlanet) {
+    this.targetPlanet = targetPlanet;
+  }
+}
+const zeus = new SpaceShuttle('Jupiter');
+```
+Cabe señalar que la palabra clave class declara una nueva 
+función, a la que se agrega un constructor. Este constructor 
+se invoca cuando se llama a new para crear un nuevo objeto.
+- UpperCamelCase debe usarse por convención para los nombres de clase de ES6, como en SpaceShuttle usado anteriormente.
+- El método constructor es un método especial para crear e inicializar un objeto creado con una clase. Aprenderá más sobre esto en la sección Programación orientada a objetos de la Certificación de estructuras de datos y algoritmos JavaScript.
+
+
+## Utilice getters y setters para controlar el acceso a un objeto
+Puede obtener valores de un objeto y establecer 
+el valor de una propiedad dentro de un objeto.
+ 
+Estos se denominan clásicamente getters y setters.  
+
+Las funciones de obtención están destinadas a simplemente devolver (obtener) el valor de la variable privada de un objeto al usuario sin que el usuario acceda directamente a la variable privada.
+
+Las funciones de establecimiento están destinadas a modificar (establecer) el valor de la variable privada de un objeto en función del valor pasado a la función de establecimiento. Este cambio podría implicar cálculos o incluso sobrescribir completamente el valor anterior.
+
+```js
+class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer() {
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor) {
+    this._author = updatedAuthor;
+  }
+}
+const novel = new Book('anonymous');
+console.log(novel.writer);  // anonymous
+novel.writer = 'newAuthor';
+console.log(novel.writer);  // newAuthor
+``` 
+s
