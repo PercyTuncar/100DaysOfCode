@@ -432,9 +432,9 @@ el valor de una propiedad dentro de un objeto.
  
 Estos se denominan clásicamente getters y setters.  
 
-Las funciones de obtención están destinadas a simplemente devolver (obtener) el valor de la variable privada de un objeto al usuario sin que el usuario acceda directamente a la variable privada.
+Las funciones Getter están destinadas a simplemente devolver (obtener) el valor de la variable privada de un objeto al usuario sin que el usuario acceda directamente a la variable privada.
 
-Las funciones de establecimiento están destinadas a modificar (establecer) el valor de la variable privada de un objeto en función del valor pasado a la función de establecimiento. Este cambio podría implicar cálculos o incluso sobrescribir completamente el valor anterior.
+Las funciones Setter están destinadas a modificar (establecer) el valor de la variable privada de un objeto en función del valor pasado a la función de establecimiento. Este cambio podría implicar cálculos o incluso sobrescribir completamente el valor anterior.
 
 ```js
 class Book {
@@ -455,4 +455,4 @@ console.log(novel.writer);  // anonymous
 novel.writer = 'newAuthor';
 console.log(novel.writer);  // newAuthor
 ``` 
-s
+Observe la sintaxis utilizada para invocar al getter y al setter. Ni siquiera parecen funciones. Los captadores y definidores son importantes porque ocultan los detalles de implementación internos. Nota: Es una convención preceder el nombre de una variable privada con un guión bajo (_). Sin embargo, la práctica en sí no convierte una variable en privada.
